@@ -1,0 +1,56 @@
+{
+    "name": "shelle-ai",
+    "author": "Steven Ickman",
+    "description": "An interactive Shell Experience powered by generative UI.",
+    "version": "0.1.1",
+    "license": "MIT",
+    "keywords": [
+        "gpt"
+    ],
+    "bugs": {
+        "url": "https://github.com/Stevenic/shelle/issues"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/Stevenic/shelle.git"
+    },
+    "main": "./dist/index.js",
+    "types": "./dist/index.d.ts",
+    "bin": "./bin/shelle.js",
+    "dependencies": {
+        "agentm-core": "0.7.2",
+        "express": "^4.19.2",
+        "open": "^10.1.0",
+        "openai": "^4.57.0",
+        "uuid": "^10.0.0",
+        "yargs": "^17.7.2"
+    },
+    "devDependencies": {
+        "@types/assert": "^1.5.3",
+        "@types/express": "^4.17.21",
+        "@types/mocha": "^8.2.0",
+        "@types/node": "^14.14.31",
+        "@types/uuid": "10.0.0",
+        "@types/yargs": "17.0.24",
+        "mocha": "10.2.0",
+        "nyc": "^15.1.0",
+        "rimraf": "^5.0.1",
+        "ts-mocha": "10.0.0",
+        "typescript": "^4.2.3"
+    },
+    "scripts": {
+        "build": "tsc -b",
+        "clean": "rimraf dist tsconfig.tsbuildinfo node_modules",
+        "start": "node ./bin/shelle.js",
+        "test": "npm-run-all build test:mocha",
+        "test:mocha": "nyc mocha tests"
+    },
+    "files": [
+        "dist",
+        "bin",
+        "src",
+        "default-pages",
+        "required-pages",
+        "images"
+    ]
+}
