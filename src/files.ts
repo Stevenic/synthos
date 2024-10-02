@@ -1,4 +1,5 @@
 import * as fs from 'fs/promises';
+import path from 'path';
 
 export async function checkIfExists(path: string): Promise<boolean> {
     try {
@@ -7,6 +8,13 @@ export async function checkIfExists(path: string): Promise<boolean> {
     } catch {
         return false;
     }
+}
+
+export async function copyFile(srcFile: string, destFolder: string): Promise<void> {
+    await ensureFolderExists(destFolder);
+    const fileName = path.basename(srcFile);
+    const destFile = path.join(destFolder, fileName);
+    await fs.copyFile(srcFile, destFile);
 }
 
 export async function copyFiles(srcFolder: string, destFolder: string): Promise<void> {

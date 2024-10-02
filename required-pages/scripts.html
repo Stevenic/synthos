@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ShellE - Scripts</title>
+    <title>SynthOS - Scripts</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #1a1a1a; color: #e0e0e0; height: 100vh; display: flex; }
@@ -54,9 +54,9 @@
 </head>
 <body>
     <div class="chat-panel">
-        <div class="chat-header">ShellE</div>
+        <div class="chat-header">SynthOS</div>
         <div class="chat-messages" id="chatMessages">
-            <div class="chat-message"><p><strong>ShellE:</strong> Add or modify scripts that can be executed using the <code>/api/scripts/:id</code> API.</p></div>
+            <div class="chat-message"><p><strong>SynthOS:</strong> Add or modify scripts that can be executed using the <code>/api/scripts/:id</code> API.</p></div>
         </div>
         <div class="link-group">
             <a href="#" id="saveLink">Save</a>
@@ -92,16 +92,16 @@
                 <button class="save-script-btn" style="display: none;">Save Changes</button>
                 <button class="delete-script-btn" style="display: none;">Delete Script</button>
                 <div class="instructions">
-                    <h3>Understanding ShellE Scripts</h3>
-                    <p>Scripts in ShellE are powerful tools that allow you to define custom terminal commands for various tasks. When ShellE executes a script, it runs the command and captures the console output, which is then returned for further processing or analysis.</p>
+                    <h3>Understanding SynthOS Scripts</h3>
+                    <p>Scripts in SynthOS are powerful tools that allow you to define custom terminal commands for various tasks. When SynthOS executes a script, it runs the command and captures the console output, which is then returned for further processing or analysis.</p>
                     
                     <h3>Creating Effective Scripts</h3>
-                    <p>When writing a script, you can use any valid terminal command. For added flexibility, you can include {{variable}} placeholders, which ShellE will replace with actual values during execution.</p>
+                    <p>When writing a script, you can use any valid terminal command. For added flexibility, you can include {{variable}} placeholders, which SynthOS will replace with actual values during execution.</p>
                     
                     <h3>Example: Weather Forecast Script</h3>
-                    <p>Here's an example of an interesting script that ShellE could use:</p>
+                    <p>Here's an example of an interesting script that SynthOS could use:</p>
                     <p><code>curl wttr.in/{{city}}?format=3</code></p>
-                    <p>This script fetches a concise weather forecast for a specified city. ShellE can call this script with different city names to get up-to-date weather information.</p>
+                    <p>This script fetches a concise weather forecast for a specified city. SynthOS can call this script with different city names to get up-to-date weather information.</p>
                     
                     <h3>Tips for Script Writing</h3>
                     <p>1. Keep commands concise and focused on a single task.</p>
@@ -112,10 +112,10 @@
                     <p>6. Define the expected variables in the Variables field to document the script's requirements.</p>
                     
                     <h3>Using the Description Field</h3>
-                    <p>The Description field allows you to provide a brief explanation of what ShellE can use your script for.</p>
+                    <p>The Description field allows you to provide a brief explanation of what SynthOS can use your script for.</p>
                     
                     <h3>Defining Variables</h3>
-                    <p>Use the Variables field to specify any input parameters your script expects. Format it as a JSON object, e.g., { city: string, days?: number }. This helps ShellE know what inputs it needs to provide when running your script.</p>
+                    <p>Use the Variables field to specify any input parameters your script expects. Format it as a JSON object, e.g., { city: string, days?: number }. This helps SynthOS know what inputs it needs to provide when running your script.</p>
                 </div>
             </div>
         </div>

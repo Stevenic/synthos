@@ -1,0 +1,7 @@
+{
+    "id": "mac-terminal",
+    "type": "command",
+    "command": "{{command}}",
+    "description": "Executes a MacOS based terminal command in the current working directory",
+    "variables": "{{command}}"
+}

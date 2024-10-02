@@ -2,14 +2,14 @@ import { loadPageState, normalizePageName, savePageState, updatePageState } from
 import { hasConfiguredSettings, loadSettings } from "../settings";
 import { Application } from 'express';
 import { transformPage, transformPageAsObject } from "./transformPage";
-import { ShellEConfig } from "../init";
+import { SynthOSConfig } from "../init";
 import { createCompletePrompt } from "./createCompletePrompt";
 import { completePrompt } from "agentm-core";
 
 const HOME_PAGE_ROUTE = '/home';
 const PAGE_NOT_FOUND = 'Page not found';
 
-export function usePageRoutes(config: ShellEConfig, app: Application): void {
+export function usePageRoutes(config: SynthOSConfig, app: Application): void {
     // Redirect / to /home page
     app.get('/', (req, res) => res.redirect(HOME_PAGE_ROUTE));
     
@@ -135,7 +135,7 @@ export function usePageRoutes(config: ShellEConfig, app: Application): void {
     });
 }
 
-export async function loadPageWithFallback(page: string, config: ShellEConfig, reset: boolean): Promise<string|undefined> {
+export async function loadPageWithFallback(page: string, config: SynthOSConfig, reset: boolean): Promise<string|undefined> {
     // Try primary pages folder first
     const pageState = await loadPageState(config.pagesFolder, page, reset);
     if (pageState) {

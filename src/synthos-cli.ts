@@ -7,8 +7,8 @@ const dynamicImport = new Function('specifier', `return import(specifier)`);
 
 export async function run() {
     await yargs(hideBin(process.argv))
-        .scriptName('shelle')
-        .command('start', `Starts ShellE's server.`, (yargs) => {
+        .scriptName('synthos')
+        .command('start', `Starts the SynthOS server.`, (yargs) => {
             return yargs
                 .option('port', {
                     describe: `The port number to use.`,
@@ -16,7 +16,7 @@ export async function run() {
                     default: 4242
                 })
                 .option('pages', {
-                    describe: `Include default pages when initializing a new .shelle folder.`,
+                    describe: `Include default pages when initializing a new .synthos folder.`,
                     type: 'boolean',
                     default: true
                 })
@@ -25,7 +25,7 @@ export async function run() {
             const config = createConfig();
             await init(config, args.pages);
             await server(config).listen(args.port, async () => {
-                console.log(`ShellE server is running on http://localhost:${args.port}`);
+                console.log(`SynthOS server is running on http://localhost:${args.port}`);
                 
                 // Open using default browser
                 const open = await dynamicImport('open');

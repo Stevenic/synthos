@@ -1,22 +1,23 @@
 {
-    "name": "shelle-ai",
+    "name": "synthos",
     "author": "Steven Ickman",
-    "description": "An interactive Shell Experience powered by generative UI.",
-    "version": "0.1.1",
+    "description": "An AI powered shell experience.",
+    "version": "0.1.0",
     "license": "MIT",
     "keywords": [
-        "gpt"
+        "synthos",
+        "ai"
     ],
     "bugs": {
-        "url": "https://github.com/Stevenic/shelle/issues"
+        "url": "https://github.com/Stevenic/synthos/issues"
     },
     "repository": {
         "type": "git",
-        "url": "https://github.com/Stevenic/shelle.git"
+        "url": "https://github.com/Stevenic/synthos.git"
     },
     "main": "./dist/index.js",
     "types": "./dist/index.d.ts",
-    "bin": "./bin/shelle.js",
+    "bin": "./bin/synthos.js",
     "dependencies": {
         "agentm-core": "0.7.2",
         "express": "^4.19.2",
@@ -41,7 +42,7 @@
     "scripts": {
         "build": "tsc -b",
         "clean": "rimraf dist tsconfig.tsbuildinfo node_modules",
-        "start": "node ./bin/shelle.js",
+        "start": "node ./bin/synthos.js",
         "test": "npm-run-all build test:mocha",
         "test:mocha": "nyc mocha tests"
     },
@@ -50,6 +51,7 @@
         "bin",
         "src",
         "default-pages",
+        "default-scripts",
         "required-pages",
         "images"
     ]

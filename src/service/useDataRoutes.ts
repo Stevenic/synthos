@@ -1,11 +1,11 @@
 import { Application } from 'express';
-import { ShellEConfig } from "../init";
+import { SynthOSConfig } from "../init";
 import { checkIfExists, deleteFile, ensureFolderExists, listFiles, loadFile, saveFile } from "../files";
 import path from "path";
 import { v4 } from "uuid";
 import { clearCachedScripts } from '../scripts';
 
-export function useDataRoutes(config: ShellEConfig, app: Application): void {
+export function useDataRoutes(config: SynthOSConfig, app: Application): void {
     // Retrieve all rows from a table
     app.get('/api/data/:table', async (req, res) => {
         // Get list of row ids
@@ -86,7 +86,7 @@ export function useDataRoutes(config: ShellEConfig, app: Application): void {
     });
 }
 
-async function tableFolder(config: ShellEConfig, table: string): Promise<string> {
+async function tableFolder(config: SynthOSConfig, table: string): Promise<string> {
     const folder = path.join(config.pagesFolder, table);
     await ensureFolderExists(folder);
     return folder;

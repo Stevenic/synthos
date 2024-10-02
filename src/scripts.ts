@@ -67,7 +67,8 @@ export async function executeScript(args: ExecuteScriptArgs): Promise<AgentCompl
 
     // Substitute variables
     const commandText = composeArguments(parsed.command, variables);
-
+    console.log(`Executing: ${commandText}`);
+    
     // Split into an array while honoring double quotes
     const argv = commandText.match(/"[^"]*"|\S+/g) || [];
     if (argv.length === 0) {
@@ -124,7 +125,6 @@ function spawnProcess(command: string, args: string[]): Promise<ExecuteScriptRes
 function composeArguments(template: string, variables: Record<string, any>): string {
     return template.replace(/{{\s*([^}\s]+)\s*}}/g, (match, name) => {
         // Convert the variable to a string and replace double quotes and line feeds with spaces
-        const value = variableToString(variables[name]);
-        return value.replace(/["\n]/g, ' ');
+        return variableToString(variables[name]);
     });
 }

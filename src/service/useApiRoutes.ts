@@ -1,14 +1,14 @@
 import { listPages } from "../pages";
 import {loadSettings, saveSettings } from "../settings";
 import { Application } from 'express';
-import { ShellEConfig } from "../init";
+import { SynthOSConfig } from "../init";
 import { availableModels, createCompletePrompt } from "./createCompletePrompt";
 import { generateDefaultImage, generateImage } from "./generateImage";
 import { chainOfThought } from "agentm-core";
 import { requiresSettings } from "./requiresSettings";
 import { executeScript } from "../scripts";
 
-export function useApiRoutes(config: ShellEConfig, app: Application): void {
+export function useApiRoutes(config: SynthOSConfig, app: Application): void {
     // List pages
     app.get('/api/pages', async (req, res) => {
         const pages = await listPages(config.pagesFolder, config.requiredPagesFolder);
@@ -82,8 +82,10 @@ export function useApiRoutes(config: ShellEConfig, app: Application): void {
             const scriptId = id;
             const response = await executeScript({ pagesFolder, scriptId, variables: req.body });
             if (response.completed) {
-                const value = response.value?.output ?? (response.value?.errors ?? []).join('\n');
-                res.json(value);
+                // Return the response as text
+                const value = (response.value?.output ?? (response.value?.errors ?? []).join('\n')).trim();
+                res.set('Content-Type', 'text/plain');
+                res.send(value);
             } else {
                 console.error(response.error);
                 res.status(500).send(response.error);

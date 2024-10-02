@@ -1,10 +1,10 @@
 import express, {Application} from 'express';
 import { usePageRoutes } from './usePageRoutes';
 import { useApiRoutes } from './useApiRoutes';
-import { ShellEConfig } from '../init';
+import { SynthOSConfig } from '../init';
 import { useDataRoutes } from './useDataRoutes';
 
-export function server(config: ShellEConfig): Application {
+export function server(config: SynthOSConfig): Application {
     const app = express();
     
     // Middleware to parse URL-encoded data (form data)

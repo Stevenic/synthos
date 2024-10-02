@@ -1,0 +1,7 @@
+{
+    "id": "android-terminal",
+    "type": "command",
+    "command": "{{command}}",
+    "description": "Executes a Android based terminal command in the current working directory",
+    "variables": "{{command}}"
+}

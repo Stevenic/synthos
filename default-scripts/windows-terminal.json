@@ -1,0 +1,7 @@
+{
+    "id": "windows-terminal",
+    "type": "command",
+    "command": "{{command}}",
+    "description": "Executes a windows based terminal command in the current working directory",
+    "variables": "{{command}}"
+}
